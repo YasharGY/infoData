@@ -1,24 +1,32 @@
-function createProducts(products) {
-    const card = document.createElement('div')
-    card.innerHTML=`<div class="card" style="width: 18rem;">
-    <img class="card-img-top" src="./images/${products.Image}" alt="Card image cap">
-    <div class="card-body">
-    <h3>${products.name}</h3>
-      <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-      <p>Price:${products.price}$</p>
-    </div>
-  </div>`
 
-  card.addEventListener('click', ()=>{
-    window.open(`/Users/ASUSS/Desktop/javaScript/scrollNum/product.html?id=${products.id}`,"_self")
-  })
+
+function createProductCard(product) {
+  const card = document.createElement('div');
+  card.classList.add('card');
+  card.style.width = '18rem';
+
+  card.innerHTML = `
+    <img class="card-img-top" src="./images/${product.Image}" alt="Card image cap">
+    <div class="card-body">
+      <h3>${product.name}</h3>
+      <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+      <p>Price: $${product.price}</p>
+    </div>
+  `;
+
+  card.addEventListener('click', () => {
+    window.location.href = `/product.html?id=${product.id}`;
+  });
+
   return card;
 }
+
 function renderProducts() {
-    const card_container = document.querySelector('.card-container')
-    products.forEach((x)=>{
-        const product = createProducts(x)
-        card_container.append(product)
-    })
+  const cardContainer = document.querySelector('.card-container');
+  products.forEach((product) => {
+    const productCard = createProductCard(product);
+    cardContainer.appendChild(productCard);
+  });
 }
-renderProducts()
+
+renderProducts();

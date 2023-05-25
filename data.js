@@ -3,7 +3,7 @@ const products = [
      id:1,
      name:'apple',
      price:20,
-     Image:'apple.jpg'
+     Image:'apple.webp'
     },
     {
         id:2,
@@ -21,6 +21,6 @@ const products = [
         id:4,
         name:'orange',
         price:50,
-        Image:'orange.jpg'
+        Image:'kiwi.webp'
     }
 ]
